@@ -6,7 +6,7 @@
 
 
    GoStack
-  [Challenge 2: Gympoint, the beginning](#)
+  [Hackaton - Challenge](#)
 
    > "Simplicity is the ultimate sophistication." **Leonardo Da Vinci**
 </p>

@@ -18,7 +18,7 @@ class MentorController {
 
     if(mentor) {
       const mentorHaveStudent = await Mentor.findAll({
-        where: { mentor_id },
+        where: { name },
         order: [['createdAt', 'DESC']],
         limit: 20,
         offset: ( page - 1 ) * 20,

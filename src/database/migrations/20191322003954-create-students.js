@@ -21,23 +21,21 @@ module.exports = {
         allowNull: false,
       },
 
-
       /**
        * Colunas para o relacionamento student <-> challenge
        */
 
       challenge_id: {
         type: Sequelize.INTEGER,
-        references: { model: 'challenge', key: 'id' },
+        references: { model: 'challenges', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'SET NULL',
-        allowNull: true
+        allowNull: true,
       },
 
-
       /**
-        * Colunas referente a data de criação e atualização das informações
-        */
+       * Colunas referente a data de criação e atualização das informações
+       */
       created_at: {
         type: Sequelize.DATE,
         allowNull: false,

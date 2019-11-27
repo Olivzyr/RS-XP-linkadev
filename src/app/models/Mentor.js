@@ -37,6 +37,11 @@ class Mentor extends Model {
   checkPassword(password) {
     return bcrypt.compare(password, this.password_hash);
   }
+
+  // Gerando o relacionamento entre tabelas
+  static associate(models) {
+    this.belongsTo(models.Student, { foreignKey: 'student_id', as: 'student' });
+  }
 }
 
-export default User;
+export default Mentor;

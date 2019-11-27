@@ -7,13 +7,16 @@ class Student extends Model {
         name: Sequelize.STRING,
         email: Sequelize.STRING,
         age: Sequelize.INTEGER,
-        wheight: Sequelize.FLOAT,
-        height: Sequelize.FLOAT,
+        challenge_id: Sequelize.INTEGER,
       },
       {
         sequelize,
       }
     );
+  }
+
+  static associate(models) {
+    this.belongsTo(models.Challenge, { foreignKey: 'challenge_id', as: 'challenge' });
   }
 }
 

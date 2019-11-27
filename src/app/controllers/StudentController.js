@@ -12,8 +12,6 @@ class StudentController {
       age: Yup.number()
         .integer()
         .required(),
-      wheight: Yup.number().required(),
-      height: Yup.number().required(),
     });
 
     if (!(await schema.isValid(req.body))) {
@@ -37,8 +35,6 @@ class StudentController {
       name,
       email,
       age,
-      wheight,
-      height,
     });
   }
 

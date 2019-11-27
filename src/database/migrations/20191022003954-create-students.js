@@ -20,14 +20,24 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
-      wheight: {
-        type: Sequelize.FLOAT,
-        allowNull: true,
+
+
+      /**
+       * Colunas para o relacionamento student <-> challenge
+       */
+
+      challenge_id: {
+        type: Sequelize.INTEGER,
+        references: { model: 'challenge', key: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL',
+        allowNull: true
       },
-      height: {
-        type: Sequelize.FLOAT,
-        allowNull: true,
-      },
+
+
+      /**
+        * Colunas referente a data de criação e atualização das informações
+        */
       created_at: {
         type: Sequelize.DATE,
         allowNull: false,

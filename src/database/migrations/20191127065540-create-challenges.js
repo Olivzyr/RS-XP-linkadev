@@ -1,38 +1,44 @@
 module.exports = {
   // Quando a migration for executada vai criar as tabelas abaixo
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('users', {
+    return queryInterface.createTable('challenges', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
       },
-      name: {
+      title: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      email: {
+      company: {
         type: Sequelize.STRING,
         allowNull: false,
         unique: true,
       },
-      password_hash: {
+
+      detail: {
         type: Sequelize.STRING,
         allowNull: false,
+        unique: true,
       },
-      created_at: {
+
+      /**
+        * Colunas referente a data de criação e atualização das informações
+        */
+       created_at: {
         type: Sequelize.DATE,
-        allowNull: false,
+        allowNull: false
       },
       updated_at: {
         type: Sequelize.DATE,
-        allowNull: false,
+        allowNull: false
       },
     });
   },
   // Rollback da migration
   down: queryInterface => {
-    return queryInterface.dropTable('users');
+    return queryInterface.dropTable('challenges');
   },
 };

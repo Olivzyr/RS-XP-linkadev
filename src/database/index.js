@@ -4,7 +4,7 @@ import Sequelize from 'sequelize';
 
 // Importando arquivo responsável pela manipulação das informações do banco para
 // cada usuário
-import User from '../app/models/User';
+import Mentor from '../app/models/Mentor';
 
 // Importando o model de students para ser carregado no banco
 import Student from '../app/models/Student';
@@ -13,7 +13,7 @@ import Student from '../app/models/Student';
 import databaseConfig from '../config/database';
 
 // Criando um vetor de usuários
-const models = [User];
+const models = [Mentor];
 
 // Criando um vetor de estudantes
 const modelsStudent = [Student];

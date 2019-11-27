@@ -1,9 +1,9 @@
 // Resgistrando usuários dentro da API
 
 import * as Yup from 'yup';
-import User from '../models/User';
+import Mentor from '../models/Mentor';
 
-class UserController {
+class MentorController {
   // Função para cadastro de usuário
   async store(req, res) {
     const schema = Yup.object().shape({
@@ -21,15 +21,15 @@ class UserController {
     }
 
     // Verificação se o email do usuário já existe
-    const userExists = await User.findOne({ where: { email: req.body.email } });
+    const mentorExists = await Mentor.findOne({ where: { email: req.body.email } });
 
-    if (userExists) {
-      return res.status(400).json({ error: 'User already exists.' });
+    if (mentorExists) {
+      return res.status(400).json({ error: 'Mentor already exists.' });
     }
 
     // Await aguarda as informações retornadas pelo servidor para evitar que a
     // execução siga sem esses dados
-    const { id, name, email } = await User.create(req.body);
+    const { id, name, email } = await Mentor.create(req.body);
 
     return res.json({
       id,
@@ -60,21 +60,21 @@ class UserController {
 
     const { email, oldPassword } = req.body;
 
-    const user = await User.findByPk(req.userId);
+    const mentor = await Mentor.findByPk(req.mentorId);
 
-    if (email !== user.email) {
-      const userExists = await User.findOne({ where: { email } });
+    if (email !== mentor.email) {
+      const mentorExists = await Mentor.findOne({ where: { email } });
 
-      if (userExists) {
-        return res.status(400).json({ error: 'User already exists.' });
+      if (mentorExists) {
+        return res.status(400).json({ error: 'Mentor already exists.' });
       }
     }
 
-    if (oldPassword && !(await user.checkPassword(oldPassword))) {
+    if (oldPassword && !(await mentor.checkPassword(oldPassword))) {
       return res.status(401).json({ error: 'Password does not match' });
     }
 
-    const { id, name } = await user.update(req.body);
+    const { id, name } = await mentor.update(req.body);
 
     return res.json({
       id,
@@ -84,4 +84,4 @@ class UserController {
   }
 }
 
-export default new UserController();
+export default new MentorController();

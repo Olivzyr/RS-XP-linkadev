@@ -8,9 +8,7 @@ class ChallengeController {
     const challenger_id = req.params.id;
     const challenger = await Student.findByPk(challenger_id);
 
-    /**
-     * Questions no answers for one user
-     */
+
 
     if(challenger) {
       const challengerHaveStudent = await Challenger.findAll({
@@ -22,9 +20,7 @@ class ChallengeController {
 
       return res.json(challengerHaveStudent);
     }else {
-      /**
-       * No challenger for all challengers
-       */
+
       const challengerHaveStudent = await Challenger.findAll({
         where: { challenger_id: null },
         order: [['createdAt', 'DESC']],

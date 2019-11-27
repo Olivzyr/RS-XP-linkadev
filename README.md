@@ -26,16 +26,16 @@ To clone and run this application, you'll need [Git](https://git-scm.com), [Node
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/SkullDarth/bootcamp-gostack-challenge-05.git
+$ git clone https://github.com/SkullDarth/RS-XP-linkadev.git
 
 # Go into the repository
-$ cd bootcamp-gostack-challenge-05
+$ cd RS-XP-linkadev
 
 # Install dependencies
 $ yarn install
 
 # Run the Project
-$ yarn start
+$ yarn dev
 
 # Create postgres container
 $ docker run --name linkadev -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres:11

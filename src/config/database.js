@@ -4,7 +4,7 @@ module.exports = {
   host: 'localhost',
   username: 'linkadev',
   password: 'docker',
-  database: 'gympoint',
+  database: 'linkadev',
   define: {
     // Atribui a data de criação e edição nas colunas do banco de cada registro
     timestamps: true,

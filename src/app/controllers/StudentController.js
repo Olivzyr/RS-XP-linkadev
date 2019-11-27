@@ -6,6 +6,7 @@ class StudentController {
   async store(req, res) {
     const schema = Yup.object().shape({
       name: Yup.string().required(),
+      challenge_id: Yup.number().required(),
       email: Yup.string()
         .email()
         .required(),
@@ -26,7 +27,7 @@ class StudentController {
       return res.status(400).json({ error: 'Student already exists. ' });
     }
 
-    const { id, name, email, age, wheight, height } = await Student.create(
+    const { id, name, email, age, challenge_id } = await Student.create(
       req.body
     );
 
@@ -35,6 +36,7 @@ class StudentController {
       name,
       email,
       age,
+      challenge_id,
     });
   }
 
@@ -44,8 +46,7 @@ class StudentController {
       name: Yup.string(),
       email: Yup.string().email(),
       age: Yup.number().integer(),
-      wheight: Yup.number(),
-      height: Yup.number(),
+      challenge_id: Yup.number().required(),
     });
 
     if (!(await schema.isValid(req.body))) {
@@ -65,15 +66,14 @@ class StudentController {
       }
     }
 
-    const { id, name, age, wheight, height } = await student.update(req.body);
+    const { id, name, age, challenge_id } = await student.update(req.body);
 
     return res.json({
       id,
       name,
       email,
       age,
-      wheight,
-      height,
+      challenge_id
     });
   }
 }

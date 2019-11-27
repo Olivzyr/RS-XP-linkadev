@@ -45,6 +45,7 @@ class MentorController {
     const schema = Yup.object().shape({
       name: Yup.string(),
       email: Yup.string().email(),
+      student_id: Yup.number().required(),
       oldPassword: Yup.string().min(6),
       password: Yup.string()
         .min(6)
@@ -76,12 +77,13 @@ class MentorController {
       return res.status(401).json({ error: 'Password does not match' });
     }
 
-    const { id, name } = await mentor.update(req.body);
+    const { id, name, student_id } = await mentor.update(req.body);
 
     return res.json({
       id,
       name,
       email,
+      student_id
     });
   }
 }

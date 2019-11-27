@@ -1,8 +1,8 @@
-#  Rocketseat: GoStack - Bootcamp 9.0
+#  Hackaton RS/XP
 
 
 <p align="center">
-  <img src="https://github.com/Rocketseat/bootcamp-gostack-desafio-02/blob/master/.github/logo.png?raw=true">
+  <img src="https://rocketseat.com.br/static/images/experience/man_computer.svg">
 
 
    GoStack
@@ -12,13 +12,10 @@
 </p>
 
 ## **About the challenge:**
-#### **Developer one system whe can control and manager gym's using [Express Framework](https://expressjs.com/pt-br/) and Node.JS**
+####
 --------------------------------------------------------------
-* The objective of this challenge is to create first part of backend API gym systems whe can save, search, controlling authentication services and edit students matriculated in the gym.
 
-* This challenge uses concepts presente in Node.JS, that includes Route Params, CRUD, sequelize, jwt, postgres database, hashpass, Yup and another features describes right below in procedures session.
-
-* To check the project in function please, click [here](https://youtu.be/lDyINPp750o)
+* To check the project in function please, click [here](#)
 
 
 --------------------------------------------------------------

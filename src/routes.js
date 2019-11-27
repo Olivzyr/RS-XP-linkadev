@@ -3,6 +3,8 @@ import Router from 'express';
 import MentorController from './app/controllers/MentorController';
 import StudentController from './app/controllers/StudentController';
 import SessionController from './app/controllers/SessionController';
+//import ChallengeController from './app/controllers/ChallengeController';
+
 
 // Middlewares
 import authMiddleware from './app/middlewares/auth';
@@ -11,6 +13,12 @@ const routes = new Router();
 
 // Criando a primeira rota
 routes.post('/mentors', MentorController.store);
+routes.get('/mentors', MentorController.index);
+routes.get('/mentors/:id', MentorController.index);
+
+// Challengers routes
+//routes.get('/challengers', ChallengeController.index);
+
 
 routes.post('/sessions', SessionController.store);
 

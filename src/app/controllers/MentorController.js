@@ -2,13 +2,50 @@
 
 import * as Yup from 'yup';
 import Mentor from '../models/Mentor';
+import Student from '../models/Student';
+
 
 class MentorController {
+  async index(req, res) {
+    const { page = 1 }= req.query;
+
+    const mentor_id = req.params.id;
+    const mentor = await Student.findByPk(mentor_id);
+
+    /**
+     * Questions no answers for one user
+     */
+
+    if(mentor) {
+      const mentorHaveStudent = await Mentor.findAll({
+        where: { mentor_id },
+        order: [['createdAt', 'DESC']],
+        limit: 20,
+        offset: ( page - 1 ) * 20,
+      });
+
+      return res.json(mentorHaveStudent);
+    }else {
+      /**
+       * No student for all mentors
+       */
+      const mentorHaveStudent = await Mentor.findAll({
+        where: { student_id: null },
+        order: [['createdAt', 'DESC']],
+        limit: 20,
+        offset: ( page - 1 ) * 20,
+      });
+      return res.json(mentorHaveStudent);
+    }
+
+
+  }
+
   // Função para cadastro de usuário
   async store(req, res) {
     const schema = Yup.object().shape({
       name: Yup.string().required(),
-      student_id: Yup.number().required(),
+      mentor_id: Yup.number().required(),
       email: Yup.string()
         .email()
         .required(),
@@ -30,13 +67,13 @@ class MentorController {
 
     // Await aguarda as informações retornadas pelo servidor para evitar que a
     // execução siga sem esses dados
-    const { id, name, student_id, email } = await Mentor.create(req.body);
+    const { id, name, mentor_id, email } = await Mentor.create(req.body);
 
     return res.json({
       id,
       name,
       email,
-      student_id
+      mentor_id
     });
   }
 
@@ -45,7 +82,7 @@ class MentorController {
     const schema = Yup.object().shape({
       name: Yup.string(),
       email: Yup.string().email(),
-      student_id: Yup.number().required(),
+      mentor_id: Yup.number().required(),
       oldPassword: Yup.string().min(6),
       password: Yup.string()
         .min(6)
@@ -77,13 +114,13 @@ class MentorController {
       return res.status(401).json({ error: 'Password does not match' });
     }
 
-    const { id, name, student_id } = await mentor.update(req.body);
+    const { id, name, mentor_id } = await mentor.update(req.body);
 
     return res.json({
       id,
       name,
       email,
-      student_id
+      mentor_id
     });
   }
 }

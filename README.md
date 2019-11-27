@@ -21,6 +21,30 @@
 --------------------------------------------------------------
 # Procedures
 
+## Running for First Time
+To clone and run this application, you'll need [Git](https://git-scm.com), [Node.js v10.16][nodejs] or higher + [Yarn v1.13][yarn] or higher installed on your computer. From your command line:
+
+```bash
+# Clone this repository
+$ git clone https://github.com/SkullDarth/bootcamp-gostack-challenge-05.git
+
+# Go into the repository
+$ cd bootcamp-gostack-challenge-05
+
+# Install dependencies
+$ yarn install
+
+# Run the Project
+$ yarn start
+
+# Create postgres container
+$ docker run --name linkadev -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres:11
+
+#Create database using postbird called linkadev
+
+
+```
+
 ## Structure and Settings
 - [x] Install Express and install and settings Nodemon e Sucrase (-D).
 - [x] Config ESLint, Prettier & EditorConfig

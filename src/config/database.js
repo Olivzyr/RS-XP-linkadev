@@ -2,7 +2,7 @@
 module.exports = {
   dialect: 'postgres',
   host: 'localhost',
-  username: 'linkadev',
+  username: 'postgres',
   password: 'docker',
   database: 'linkadev',
   define: {

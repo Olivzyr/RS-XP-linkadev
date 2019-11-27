@@ -8,6 +8,7 @@ class MentorController {
   async store(req, res) {
     const schema = Yup.object().shape({
       name: Yup.string().required(),
+      student_id: Yup.number().required(),
       email: Yup.string()
         .email()
         .required(),
@@ -29,12 +30,13 @@ class MentorController {
 
     // Await aguarda as informações retornadas pelo servidor para evitar que a
     // execução siga sem esses dados
-    const { id, name, email } = await Mentor.create(req.body);
+    const { id, name, student_id, email } = await Mentor.create(req.body);
 
     return res.json({
       id,
       name,
       email,
+      student_id
     });
   }
 

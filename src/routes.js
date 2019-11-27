@@ -3,7 +3,7 @@ import Router from 'express';
 import MentorController from './app/controllers/MentorController';
 import StudentController from './app/controllers/StudentController';
 import SessionController from './app/controllers/SessionController';
-//import ChallengeController from './app/controllers/ChallengeController';
+import ChallengeController from './app/controllers/ChallengeController';
 
 
 // Middlewares
@@ -17,7 +17,10 @@ routes.get('/mentors', MentorController.index);
 routes.get('/mentors/:id', MentorController.index);
 
 // Challengers routes
-//routes.get('/challengers', ChallengeController.index);
+routes.get('/challengers', ChallengeController.index);
+
+routes.get('/students', StudentController.index);
+
 
 
 routes.post('/sessions', SessionController.store);

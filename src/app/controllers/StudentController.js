@@ -2,6 +2,16 @@ import * as Yup from 'yup';
 import Student from '../models/Student';
 
 class StudentController {
+  async index(req, res) {
+    /**
+     * show 20 enrollment for page
+     */
+    const student = await Student.findAll({
+      order: [['createdAt', 'DESC']],
+    });
+    return res.json(student);
+  }
+
   // Cadastro de estudante
   async store(req, res) {
     const schema = Yup.object().shape({

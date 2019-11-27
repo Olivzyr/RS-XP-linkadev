@@ -14,7 +14,7 @@ module.exports = {
         {
           name: 'Alura',
           about: 'Empresa responsavel pela caelum online',
-          documentValue: '17.213.123/0001-01',
+          document_value: '17.213.123/0001-01',
           document_type_id: '2',
           created_at: new Date(),
           updated_at: new Date(),

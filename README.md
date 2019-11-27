@@ -35,7 +35,7 @@ $ cd RS-XP-linkadev
 $ yarn install
 
 # Run the Project
-$ yarn start
+$ yarn dev
 
 # Create postgres container
 $ docker run --name linkadev -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres:11
